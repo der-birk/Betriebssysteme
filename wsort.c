@@ -16,6 +16,10 @@ static int insertElement(char* letter) {
 	
 }
 
+static void outputWords(void){
+
+}
+
 
 int main (int argc, char* argv[]) {
 	
