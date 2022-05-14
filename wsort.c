@@ -1,38 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-
-
-typedef struct ListNode {
-char* word;
-struct ListNode* next;
-} node;
-
-node* listHead = NULL;
-
-
-//fügt das Wort auf das "letter" zeigt, an den richtigen Platz in der Liste ein
-static int insertElement(char* letter) {
-	
-}
-
-static void outputWords(void){
-
-}
+#include <string.h>
 
 
 int main (int argc, char* argv[]) {
 	
-	//einlesen der Wörter
-    fgets(str, 101, stdin);
-	
-	//Fehlerbehandelung
-	if(str == NULL){
+	char** pWordList = NULL;
+	char newWord[102];
+	int wordCounter = 0;
+	while (fgets(newWord, 101, stdin) != NULL)
+		{
+			//find the true ending of string
+			//if empty begin with next word
+			char* pCharFinder = strchr(newWord, '\n');
+			if (pCharFinder != NULL) *pCharFinder = '\0';
+			if (strlen(newWord) == 0) continue;
+			wordCounter++;
+			
+			//new word found, expand wordlist
+			if(sizeof(*pWordList)/sizeof(char*) < wordCounter) 
+			{
+				char** pTemp = realloc(pWordList, sizeof(*pWordList)+sizeof(char*));
+				if (pTemp == NULL) 
+				{
+					//TODO: Fehlerbehandlung
+				}
+				pWordList = pTemp;
+			}
+			//create character array
+			char* pTemp = malloc(sizeof((strlen(newWord)+1)*sizeof(char)));
+			pWordList[wordCounter] = pTemp;
+			for (int i = 0; strlen(newWord)+1 >= i; i++)
+				pWordList[wordCounter][i] = newWord[i];				
+		}
 		
-	}
-    else{
-		insertElement(str);
-	}
-
 	exit(EXIT_SUCCESS);
 }
