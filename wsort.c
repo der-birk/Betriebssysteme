@@ -18,7 +18,7 @@ int main (int argc, char* argv[]) {
 			wordCounter++;
 			
 			//new word found, expand wordlist
-			if(sizeof(*pWordList)/sizeof(char*) < wordCounter)    // ???
+			if(sizeof(*pWordList)/sizeof(char*) < wordCounter)    // ??? sizeof(*pWordList)/sizeof(char*) = Anzahl der Wörter in der pWordList?
 			{
 				char** pTemp = realloc(pWordList, sizeof(*pWordList)+sizeof(char*));
 				if (pTemp == NULL) 
