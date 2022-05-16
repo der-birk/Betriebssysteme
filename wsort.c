@@ -12,9 +12,9 @@ int main (int argc, char* argv[]) {
 		{
 			//find the true ending of string
 			//if empty begin with next word
-			char* pCharFinder = strchr(newWord, '\n');
+			char* pCharFinder = strchr(newWord, '\n');      // strchr: searches for the first occurrence of the character '\n' in the string
 			if (pCharFinder != NULL) *pCharFinder = '\0';
-			if (strlen(newWord) == 0) continue;
+			if (strlen(newWord) == 0) continue;            // strlen: computes the length of the string up to, but not including the terminating null character.
 			wordCounter++;
 			
 			//new word found, expand wordlist
@@ -27,6 +27,7 @@ int main (int argc, char* argv[]) {
 				}
 				pWordList = pTemp;
 			}
+
 			//create character array
 			char* pTemp = malloc(sizeof((strlen(newWord)+1)*sizeof(char)));
 			pWordList[wordCounter] = pTemp;
@@ -36,3 +37,4 @@ int main (int argc, char* argv[]) {
 		
 	exit(EXIT_SUCCESS);
 }
+
