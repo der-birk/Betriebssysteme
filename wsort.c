@@ -24,6 +24,7 @@ int main (int argc, char* argv[]) {
 				if (pTemp == NULL) 
 				{
 					//TODO: Fehlerbehandlung
+					printf('realloc of new word failed');
 				}
 				pWordList = pTemp;
 			}
