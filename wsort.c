@@ -29,11 +29,29 @@ int main (int argc, char* argv[]) {
 				pWordList = pTemp;
 			}
 
+
 			//create character array
 			char* pTemp = malloc(sizeof((strlen(newWord)+1)*sizeof(char)));
 			pWordList[wordCounter] = pTemp;
 			for (int i = 0; strlen(newWord)+1 >= i; i++)
 				pWordList[wordCounter][i] = newWord[i];				
+		}
+
+
+		//sorting array with bubblesort
+		int compare = 0;
+		for(int i = 0, i < wordCounter, i++){
+			for(int p = 0, p < wordCounter -i -1 , p++){
+				char* str1 = pWordList[p];
+				char* str2 = pWordList[p+1];;
+			    compare = strcmp(str1, str2);
+
+				if(compare > 0){      // str2 is less than str1 -> they have to be switched
+                    char* temp = pWordList[p];
+					pWordList[p] = pWordList[p+1];
+					pWordList[p+1] = temp;
+				}
+		    }
 		}
 		
 	exit(EXIT_SUCCESS);
