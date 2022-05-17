@@ -68,6 +68,7 @@ int main (int argc, char* argv[]) {
 		}
 	
 	//TODO: send list to stdout and catch errors for function calls above
+	// REMEMBER that the strings are safed without line breaks and the have to be added for output
 
 	exit(EXIT_SUCCESS);
 }
